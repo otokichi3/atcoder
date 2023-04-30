@@ -3,18 +3,21 @@
 YES = "Yes"  # type: str
 NO = "No"  # type: str
 
+
 # 縦シフト
 def vshift(A):
-    a = A.pop(len(A)-1)
+    a = A.pop(len(A) - 1)
     A.insert(0, a)
     return A
+
 
 # 横シフト
 def hshift(A):
     for i in range(len(A)):
-        a = A[i].pop(len(A[i])-1)
+        a = A[i].pop(len(A[i]) - 1)
         A[i].insert(0, a)
     return A
+
 
 def solve(H, W, A, B):
     for _ in range(H):
@@ -32,17 +35,17 @@ def solve(H, W, A, B):
     print(NO)
     return
 
-    
 
 def main():
     H, W = map(int, input().split())
-    A = ['.'] * H
-    B = ['.'] * H
+    A = ["."] * H
+    B = ["."] * H
     for i in range(H):
         A[i] = list(input())
     for i in range(H):
         B[i] = list(input())
     solve(H, W, A, B)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
