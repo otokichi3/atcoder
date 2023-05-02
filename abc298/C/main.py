@@ -1,35 +1,30 @@
 #!/usr/bin/env python3
+from collections import defaultdict
+
+
+def solve(N: int, Q: int):
+    box = defaultdict(list)
+    card = defaultdict(set)
+
+    for _ in range(Q):
+        q = list(map(int, input().split()))
+        i = int(q[1])
+        if q[0] == 1:
+            j = int(q[2])
+            box[j].append(i)
+            card[i].add(j)
+        elif q[0] == 2:
+            print(*sorted(box[i]))
+        else:
+            print(*sorted(list(card[i])))
+
 
 def main():
     N = int(input())
     Q = int(input())
 
-    # init box
-    box = {}
-    for i in range(N):
-        box[i + 1] = []
+    solve(N, Q)
 
-    # init numbers
-    numbers = {}
 
-    ans = ''
-    for i in range(Q):
-        query = input().split()
-        # q1
-        if query[0] == "1":
-            box[int(query[2])].append(query[1])
-        # q2
-        elif query[0] == "2":
-            res = sorted(box[int(query[1])])
-            ans += ' '.join(res) + '\n'
-        # q3
-        else:
-            box_list = []
-            for j in range(1, N+1):
-                if query[1] in box[j]:
-                    box_list.append(str(j))
-            ans += ' '.join(box_list) + '\n'
-    print(ans)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
