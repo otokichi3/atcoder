@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-import sys, re
+import sys
 
 
 def solve(N: int, S: str):
-    # 文字列Sの中の*が|に挟まれていればYes
-    p = "(.*\|.*\*.*\|)"
-    pc = re.compile(p)
-    res = re.search(pc, S)
-    if res == None:
-        print("out")
+    left = S.find('|')
+    right = S.rfind('|')
+    aster = S.rfind('*')
+    if left < aster and aster < right:
+        print('in')
     else:
-        print("in")
+        print('out')
+    return
 
 
 def main():
@@ -18,12 +18,10 @@ def main():
         for line in sys.stdin:
             for word in line.split():
                 yield word
-
     tokens = iterate_tokens()
     N = int(next(tokens))  # type: int
     S = next(tokens)  # type: str
     solve(N, S)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
