@@ -3,22 +3,20 @@ import sys
 
 
 def solve(N: int, T: int, C: "List[int]", R: "List[int]"):
-    p1 = C[0]
-    max = C[0]
-    player = 0
+    p1c = C[0]
+    max = 0
+    p = 0
     if T in C:
         for i in range(N):
-            if C[i] == T:
-                if R[i] > max:
-                    max = R[i]
-                    player = i
+            if C[i] == T and R[i] > max:
+                max = R[i]
+                p = i
     else:
         for i in range(N):
-            if C[i] == p1:
-                if R[i] > max:
-                    max = R[i]
-                    player = i
-    print(player + 1)
+            if C[i] == p1c and R[i] > max:
+                max = R[i]
+                p = i
+    print(p + 1)
     return
 
 
