@@ -3,26 +3,9 @@ import sys
 import re
 
 
-def s(N, S):
-    res = -1
-    n = 0
-    for i in range(N):
-        if S[i] == "o":
-            n += 1
-            if n > res:
-                res = n
-        else:
-            n = 0
-    return res
-
-
 def solve(N: int, S: str):
-    rmax = s(N, S)
-    lmax = s(N, S[::-1])
-    if rmax > lmax:
-        print(rmax)
-    else:
-        print(lmax)
+    ans = max(map(len, S.split('-'))) if 'o' in S and '-' in S else -1
+    print(ans)
 
 
 def main():
