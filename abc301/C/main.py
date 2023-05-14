@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 import sys
+from collections import defaultdict
 
 YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 
 def solve(S: str, T: str):
-    S = sorted(list(S))
-    T = sorted(list(T))
-    atcoder = ('a', 't', 'c', 'o', 'd', 'e', 'r')
-    for i in range(len(S)):
-        if S[i] == T[i] or \
-        S[i] == '@' and T[i] != '@' and T[i] in atcoder or \
-        S[i] != '@' and T[i] == '@' and S[i] in atcoder:
-            continue
-        else:
+    scnt = defaultdict(int)
+    tcnt = defaultdict(int)
+    for c in S: scnt[c] += 1
+    for c in T: tcnt[c] += 1
+    for c in "atcoder":
+        m = max(scnt[c], tcnt[c])
+        if scnt["@"] < m - scnt[c] or tcnt["@"] < m - tcnt[c]:
             print(NO)
-            return 
-    print(YES)
+            return
+        scnt["@"] -= m - scnt[c]
+        scnt[c] = m
+        tcnt["@"] -= m - tcnt[c]
+        tcnt[c] = m
+    print(YES if scnt == tcnt else NO)
     return
 
 
