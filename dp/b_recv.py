@@ -1,3 +1,4 @@
+# 貰うDP
 N, K = map(int, input().split())
 h = list(map(int, input().split()))
 dp = [0, abs(h[0] - h[1])]
