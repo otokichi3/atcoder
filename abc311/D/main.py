@@ -5,18 +5,17 @@ N, M = map(int, input().split())
 S = [list(input()) for _ in range(N)]
 
 visited = [[False] * M for _ in range(N)]
+visited[1][1] = True
 q = deque()
 start = (1, 1)  # 始点(2,2)
 q.append(start)
-visited[1][1] = True
 end = set()
 end.add(start)
-d = [(-1, 0), (0, -1), (1, 0), (0, 1)]
 
 while q:
     x, y = q.popleft()
-    for dx, dy in d:
-        for i in range(1, 200):
+    for dx, dy in [(-1, 0), (0, -1), (1, 0), (0, 1)]:
+        for i in range(1, 200): # 壁でbreakするのでout of indexにはならない
             nx = x + dx * i # +でなく*なのは上もしくは左方向のとき負の値のため
             ny = y + dy * i
             if S[nx][ny] == ".":
