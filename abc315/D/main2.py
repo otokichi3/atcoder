@@ -28,15 +28,11 @@ while True:
 
     # 行の削除(前から削除すると削除するインデックスがずれるためreversd)
     for i in kesu_row[::-1]:
-        if len(t) <= i:
-            break
         _ = t.pop(i)
 
     # 列の削除(転置して削除対象の列を行として削除)
     g = list(zip(*t)) # 転置行列を転置して元の行列に戻す
     for i in kesu_line[::-1]:
-        if len(g) <= i:
-            break
         _ = g.pop(i)
 
 ans = 0

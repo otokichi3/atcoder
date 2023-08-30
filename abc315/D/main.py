@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from pprint import pprint
-
 h, w = map(int, input().split())
 c = [list(input()) for _ in range(h)]
 a = [[0] * w for _ in range(h)]
