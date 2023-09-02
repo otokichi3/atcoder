@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 n, d, p = map(int, input().split())
 F = list(map(int, input().split()))
 F = sorted(F, reverse=True)

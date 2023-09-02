@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 n = int(input())
 base = [[False] * 100 for _ in range(100)]
 for i in range(n):
