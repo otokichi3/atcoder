@@ -4,8 +4,7 @@
 
 # atcoder-tools をPyPy向けに改造
 
-[atcoder-tools](https://github.com/kyuridenamida/atcoder-tools)でファイルの作成、テストおよび提出を行う。
-PyPyには対応していないため、PyPyを使いたければインストールしたファイルの一部を編集する必要がある。
+[atcoder-tools](https://github.com/kyuridenamida/atcoder-tools)でファイルの作成、テストおよび提出を行う。ただしPyPyには対応していないため、PyPyを使いたければインストールしたファイルの一部を編集する必要がある。
 
 変更ファイルのディレクトリは以下の通り確認できる。
 
@@ -20,8 +19,7 @@ Location: /home/otokichi3/.local/lib/python3.10/site-packages
 /home/otokichi3/.local/lib/python3.10/site-packages/atcodertools/common/language.py`
 ```
 
-変更の方法として、提出言語を選択する正規表現の先頭にPyPyを無理やり持ってくる。
-ただしこのやり方は以下の点に留意する必要がある
+変更の方法として、提出言語を選択する正規表現の先頭にPyPyを無理やり持ってくる。ただしこのやり方は以下の点に留意する必要がある
 
 - atcoder-toolsの更新時に元に戻る（きっとCPythonで提出することになる）
 - プルダウンの言語名変更時に提出できなくなる
