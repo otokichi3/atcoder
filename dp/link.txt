@@ -1,5 +1,0 @@
-Educational DP Contest
-https://atcoder.jp/contests/dp/
-
-Educational DP Contest の解説（こちらをもとに勉強）
-https://qiita.com/drken/items/dc53c683d6de8aeacf5a
