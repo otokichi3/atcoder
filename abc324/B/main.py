@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 N = int(input())
-for i in range(100):
-    for j in range(100):
-        if N == (2 ** i) * (3 ** j):
-            print("Yes")
-            exit()
-print("No")
+while N % 2 == 0:
+    N //= 2
+while N % 3 == 0:
+    N //= 3
+if N == 1:
+    print("Yes")
+else:
+    print("No")
