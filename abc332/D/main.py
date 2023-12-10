@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ac*30,wa*8,re*4
 
 h, w = map(int, input().split())
 ga1 = [[0 for _ in range(w)] for _ in range(h)]
